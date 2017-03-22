@@ -1,0 +1,31 @@
+﻿@model Symphony.Models.A3
+
+@{
+    ViewBag.Title = "ایجاد";
+}
+<form method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <h4>قطعه با کنسرت</h4>
+    <br />
+    @Html.ValidationSummary(true, "لطفا اطلاعات را دقیق وارد نمائید", new { @class = "Message" })
+    <div>
+        @Html.LabelFor(model => model.TrackId, "TrackId")
+        <div>
+            @Html.DropDownList("TrackId")
+            @Html.ValidationMessageFor(model => model.TrackId, "*")
+        </div>
+    </div>
+    <div>
+        @Html.LabelFor(model => model.ConcertId, "ConcertId")
+        <div>
+            @Html.DropDownList("ConcertId")
+            @Html.ValidationMessageFor(model => model.ConcertId, "*")
+        </div>
+    </div>
+
+    <input type="submit" value="ایجاد" />
+</form>
+@if (!Request.IsAjaxRequest())
+{
+    @Html.ActionLink("بازگشت", "Index")
+}

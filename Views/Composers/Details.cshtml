@@ -1,0 +1,28 @@
+﻿@model Symphony.Models.Composer
+
+@{
+    ViewBag.Title = "جزئیات";
+}
+<div>
+    <h4>آهنگساز</h4>
+    <br />
+    <dl>
+        <dd>
+            <img src="~/Thumbs/Composer/@Model.Id" />
+        </dd>
+        <dt>
+            @Html.DisplayFor(model => model.Fullname)
+        </dt>
+        <dd>
+            @Html.Raw(Model.Text)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش","Edit")
+    @Ajax.ActionLink("حذف", "Delete", new { id=Model.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+@if (!Request.IsAjaxRequest())
+{
+    @Html.ActionLink("بازگشت", "Index")
+}
+</p>

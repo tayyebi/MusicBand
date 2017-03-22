@@ -1,0 +1,29 @@
+﻿@model Symphony.Models.Leader
+
+@{
+    ViewBag.Title = "جزئیات";
+}
+<div>
+    <h4>رهبر</h4>
+    <br />
+    <dl>
+        <dt>
+            @Html.DisplayFor(model => model.FirstName)
+            @Html.DisplayFor(model => model.LastName)
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.BirthYear)
+        </dt>
+        <dd>
+            <img src="~/Thumbs/Leader/@Model.Id" />
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.Id })
+    @Ajax.ActionLink("حذف", "Delete", new { id=Model.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+@if (!Request.IsAjaxRequest())
+{
+    @Html.ActionLink("بازگشت", "Index")
+}
+</p>

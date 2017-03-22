@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Symphony.Models.Adverties>
+@{
+    ViewBag.Title = "تبلیغات";
+}
+
+@foreach (var item in Model)
+{
+    <item>
+        <id>@Html.DisplayFor(modelitem => item.Id)</id>
+        <headline>
+            @Html.DisplayFor(modelitem => item.Title)
+        </headline>
+        <destination>
+            @Html.DisplayFor(modelitem => item.Url)
+        </destination>
+        <src>
+            @Symphony.Controllers.About.Root.ToString()RSS/AdvPic/@item.Id
+        </src>
+    </item>
+}

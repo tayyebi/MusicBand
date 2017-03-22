@@ -1,0 +1,95 @@
+﻿@model Symphony.Models.Picture
+
+@{
+    ViewBag.Title = "ایجاد";
+}
+<form method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <h4>تصویر</h4>
+    <br />
+    @Html.ValidationSummary(true, "لطفا اطلاعات را دقیق وارد نمائید", new { @class = "Message" })
+    <div>
+        @Html.LabelFor(model => model.Title)
+        <div>
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title, "*")
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Description)
+        <div>
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description, "*")
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Bytes)
+        <div>
+            <input type="file" name="Pic" />
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.ConcertId, "ConcertId")
+        <div>
+            @Html.DropDownList("ConcertId","")
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.StringerId, "StringerId")
+        <div>
+            @Html.DropDownList("StringerId","")
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.TrackId, "TrackId")
+        <div>
+            @Html.DropDownList("TrackId","")
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.LeaderId, "LeaderId")
+        <div>
+            @Html.DropDownList("LeaderId","")
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.InstrumentId, "InstrumentId")
+        <div>
+            @Html.DropDownList("InstrumentId","")
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.GenusId, "GenusId")
+        <div>
+            @Html.DropDownList("GenusId","")
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.ComposerId, "ComposerId")
+        <div>
+            @Html.DropDownList("ComposerId","")
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.NewsId, "NewsId")
+        <div>
+            @Html.DropDownList("NewsId","")
+        </div>
+    </div>
+
+    <input type="submit" value="ایجاد" />
+</form>
+@if (!Request.IsAjaxRequest())
+{
+    @Html.ActionLink("بازگشت", "Index")
+}

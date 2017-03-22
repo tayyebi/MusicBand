@@ -1,0 +1,29 @@
+﻿@model Symphony.Models.Leader
+
+@{
+    ViewBag.Title = "حذف";
+}
+<div>
+    <h4>رهبر</h4>
+    <br />
+    <dl>
+        <dt>
+            @Html.DisplayFor(model => model.FirstName)
+            @Html.DisplayFor(model => model.LastName)
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.BirthYear)
+        </dt>
+        <dd>
+            <img src="~/Thumbs/Leader/@Model.Id" />
+        </dd>
+    </dl>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+            <input type="submit" value="حذف"/>
+    }
+</div>
+@if (!Request.IsAjaxRequest())
+{
+@Html.ActionLink("بازگشت", "Index")
+}

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Symphony.Models.Concert>
+@{
+    ViewBag.Title = "کنسرت ها";
+}
+
+@foreach (var item in Model)
+{
+    <item>
+        <date>@Html.DisplayFor(modelitem => item.Date)</date>
+        <id>@Html.DisplayFor(modelitem => item.Id)</id>
+        <thumbnail>
+            @Symphony.Controllers.About.Root.ToString()Thumbs/Concerts/@item.Id
+        </thumbnail>
+    </item>
+}

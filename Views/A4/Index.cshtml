@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Symphony.Models.A4>
+
+@{
+    ViewBag.Title = "کنسرت با رهبر";
+}
+@Html.ActionLink("ایجاد", "Create")
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Leader.Fullname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Concert.Date)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Leader.Fullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Concert.Date)
+            </td>
+            <td>
+                @Ajax.ActionLink("حذف", "Delete", new { id = item.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+            </td>
+        </tr>
+    }
+</table>

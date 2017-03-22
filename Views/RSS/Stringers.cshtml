@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Symphony.Models.Stringer>
+@{
+    ViewBag.Title = "نوازندگان";
+}
+
+@foreach (var item in Model)
+{
+<item>
+    <id>@Html.DisplayFor(modelitem => item.Id)</id>
+    <fullname>
+        @Html.DisplayFor(modelitem => item.Fullname)
+    </fullname>
+    <birth>
+        @Html.DisplayFor(modelitem => item.BirthYear)
+    </birth>
+    <thumbnail>
+        @Symphony.Controllers.About.Root.ToString()Thumbs/Stringer/@item.Id
+    </thumbnail>
+</item>
+}

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Symphony.Models.Folder>
+
+@{
+    ViewBag.Title = "پوشه";
+}
+@Html.ActionLink("ایجاد", "Create")
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Parent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Parent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("ویرایش", "Edit", new { id=item.Id })
+            @Ajax.ActionLink("حذف", "Delete", new { id=item.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+        </td>
+    </tr>
+}
+</table>

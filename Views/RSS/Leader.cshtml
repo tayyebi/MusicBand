@@ -1,0 +1,21 @@
+﻿@model Symphony.Models.Leader
+
+@{
+    ViewBag.Title = "رهبر";
+}
+
+<item>
+    <id>@Html.DisplayFor(model => model.Id)</id>
+    <fullname>
+        @Html.DisplayFor(model => model.Fullname)
+    </fullname>
+    <birth>
+        @Html.DisplayFor(model => model.BirthYear)
+    </birth>
+    <text>
+        @Html.Raw(Model.Text)
+    </text>
+    <thumbnail>
+        @Symphony.Controllers.About.Root.ToString()Thumbs/Leader/@Model.Id
+    </thumbnail>
+</item>

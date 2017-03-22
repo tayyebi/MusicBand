@@ -1,0 +1,40 @@
+﻿@model Symphony.Models.Stringer
+
+@{
+    ViewBag.Title = "حذف";
+}
+<div>
+    <h4>نوازنده</h4>
+    <br />
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthYear)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BirthYear)
+        </dd>
+        <dd>
+            <img src="~/Thumbs/Stringer/@Model.Id" />
+        </dd>
+    </dl>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+            <input type="submit" value="حذف"/>
+    }
+</div>
+@if (!Request.IsAjaxRequest())
+{
+@Html.ActionLink("بازگشت", "Index")
+}

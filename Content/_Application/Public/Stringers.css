@@ -1,0 +1,23 @@
+﻿#item , .item{
+    margin:1.1em;
+    text-decoration:none;
+    width: 15em;
+    height: 25em;
+    color:inherit;
+    display:inline-block;
+    border-radius:1em;
+    background-color:rgba(128, 128, 128, 0.50);
+    text-align:center;
+}
+#item:hover, #item:focus, .item:hover ,.item:focus{
+    box-shadow: 0 0 1em rgb(0, 0, 0);
+}
+#item #thumbnail ,.item #thumbnail{
+    width:10em;
+    max-height:12em;
+    border-bottom-left-radius:1em;  
+    border-bottom-right-radius:1em;  
+}
+.item{
+    background-color:rgba(128, 128, 128, 0.20);
+}

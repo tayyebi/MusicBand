@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Symphony.Models.Picture>
+@{
+    ViewBag.Title = "تصاویر";
+}
+
+@foreach (var item in Model)
+{
+    <item>
+        <headline>
+            @Html.DisplayFor(modelitem => item.Title)
+        </headline>
+        <thumbnail>@Symphony.Controllers.About.Root.ToString()Thumbs/Pic/@item.Id</thumbnail>
+        <src>@Symphony.Controllers.About.Root.ToString()RSS/Picture/@item.Id</src>
+        <text>
+            @Html.DisplayFor(modelitem => item.Description)
+        </text>
+        <url>
+            <!--url to image in gallery-->
+        </url>
+    </item>
+}

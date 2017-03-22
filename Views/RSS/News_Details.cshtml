@@ -1,0 +1,18 @@
+﻿@model Symphony.Models.News
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<headline>
+    @Html.DisplayFor(model => model.Title)
+</headline>
+<date>
+    @Html.DisplayFor(model => model.Date)
+</date>
+<text>
+    @Html.Raw(Model.Text)
+</text>
+<thumbnail>
+    @Symphony.Controllers.About.Root.ToString()Thumbs/News/@Model.Id
+</thumbnail>

@@ -1,0 +1,102 @@
+﻿<#@ template language="C#" HostSpecific="True" #>
+<#@ output extension=".cshtml" #>
+<#@ include file="Imports.include.t4" #>
+@model <#= ViewDataTypeName #>
+<#
+// The following chained if-statement outputs the file header code and markup for a partial view, a view using a layout page, or a regular view.
+if(IsPartialView) {
+#>
+
+<#
+} else if(IsLayoutPageSelected) {
+#>
+
+@{
+    ViewBag.Title = "جزئیات";
+<#
+if (!String.IsNullOrEmpty(LayoutPageFile)) {
+#>
+    Layout = "<#= LayoutPageFile#>";
+<#
+}
+#>
+}
+<#
+} else {
+#>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>جزئیات</title>
+</head>
+<body>
+<#
+    PushIndent("    ");
+}
+#>
+<div>
+    <h4><#= ViewDataTypeShortName #></h4>
+    <br />
+    <dl>
+<#
+foreach (PropertyMetadata property in ModelMetadata.Properties) {
+    if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
+#>
+<#
+        if (property.IsAssociation && GetRelatedModelMetadata(property) == null) {
+            continue;
+        }
+#>
+        <dt>
+            @Html.DisplayNameFor(model => model.<#= GetValueExpression(property) #>)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.<#= GetValueExpression(property) #>)
+        </dd>
+<#
+    }
+}
+#>
+    </dl>
+</div>
+<p>
+<#
+string pkName = GetPrimaryKeyName();
+if (pkName != null) {
+#>
+    @Html.ActionLink("ویرایش", "Edit", new { id=Model.<#= pkName #> }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+    @Ajax.ActionLink("حذف", "Delete", new { id=Model.<#= pkName #> }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+@if (!Request.IsAjaxRequest())
+{
+    @Html.ActionLink("بازگشت", "Index")
+}
+<#
+} else {
+#>
+    @Html.ActionLink("ویرایش", "Edit", new { /* id=Model.PrimaryKey */ }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+    @Ajax.ActionLink("حذف", "Delete", new { /* id=Model.PrimaryKey */ }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+@if (!Request.IsAjaxRequest())
+{
+    @Html.ActionLink("بازگشت", "Index")
+}
+<#
+}
+#>
+</p>
+<#
+if(!IsPartialView && !IsLayoutPageSelected) {
+    ClearIndent();
+#>
+</body>
+</html>
+<#
+}
+#>
+<#@ include file="ModelMetadataFunctions.cs.include.t4" #>

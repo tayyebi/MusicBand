@@ -1,0 +1,37 @@
+﻿@model Symphony.Models.Concert
+
+@{
+    ViewBag.Title = "جزئیات";
+}
+<div>
+    <h4>کنسرت</h4>
+    <br />
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dd>
+            <img src="~/Thumbs/Concert/@Model.Id" />
+        </dd>
+        <dt>
+            @Html.Raw(Model.Description)
+        </dt>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id=Model.Id })
+    @Ajax.ActionLink("حذف", "Delete", new { id=Model.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+@if (!Request.IsAjaxRequest())
+{
+    @Html.ActionLink("بازگشت", "Index")
+}
+</p>

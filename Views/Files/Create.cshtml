@@ -1,0 +1,32 @@
+﻿@model Symphony.Models.File
+
+@{
+    ViewBag.Title = "ایجاد";
+}
+<form method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <h4>فایل</h4>
+    <br />
+    @Html.ValidationSummary(true, "لطفا اطلاعات را دقیق وارد نمائید", new { @class = "Message" })
+
+    <div>
+        @Html.LabelFor(model => model.Bytes)
+        <div>
+            <input type="file" name="Parvandeh" />
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.FolderId, "FolderId")
+        <div>
+            @Html.DropDownList("FolderId")
+            @Html.ValidationMessageFor(model => model.FolderId, "*")
+        </div>
+    </div>
+
+    <input type="submit" value="ایجاد" />
+</form>
+@if (!Request.IsAjaxRequest())
+{
+    @Html.ActionLink("بازگشت", "Index")
+}

@@ -1,0 +1,28 @@
+﻿@model Symphony.Models.Genus
+
+@{
+    ViewBag.Title = "جزئیات";
+}
+<div>
+    <h4>صدا</h4>
+    <br />
+    <dl>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dd>
+            <img src="~/Thumbs/Genus/@Model.Id" />
+        </dd>
+        <dd>
+            @Html.Raw(Model.Text)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.Id })
+    @Ajax.ActionLink("حذف", "Delete", new { id=Model.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+@if (!Request.IsAjaxRequest())
+{
+    @Html.ActionLink("بازگشت", "Index")
+}
+</p>

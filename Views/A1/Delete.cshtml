@@ -1,0 +1,25 @@
+﻿@model Symphony.Models.A1
+
+@{
+    ViewBag.Title = "حذف";
+}
+<div>
+    <h4>نوازنده با ساز</h4>
+    <br />
+    <dl>
+        <dt>
+            @Html.DisplayFor(model => model.Stringer.Fullname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Instrument.Name)
+        </dd>
+    </dl>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+            <input type="submit" value="حذف"/>
+    }
+</div>
+@if (!Request.IsAjaxRequest())
+{
+@Html.ActionLink("بازگشت", "Index")
+}

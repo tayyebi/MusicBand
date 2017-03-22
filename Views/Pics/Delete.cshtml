@@ -1,0 +1,18 @@
+﻿@model Symphony.Models.Picture
+
+@{
+    ViewBag.Title = "حذف";
+}
+<div>
+    <h4>تصویر</h4>
+    <br />
+    <img src="~/Thumbs/Pic/@Model.Id" />
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+            <input type="submit" value="حذف"/>
+    }
+</div>
+@if (!Request.IsAjaxRequest())
+{
+@Html.ActionLink("بازگشت", "Index")
+}

@@ -1,0 +1,31 @@
+﻿@model Symphony.Models.Adverties
+
+@{
+    ViewBag.Title = "جزئیات";
+}
+<div>
+    <h4>تبلیغات</h4>
+    <br />
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            <img src="@Symphony.Controllers.About.Root.ToString()/RSS/AdvPic/@Model.Id" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id=Model.Id })
+    @Ajax.ActionLink("حذف", "Delete", new { id=Model.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+@if (!Request.IsAjaxRequest())
+{
+    @Html.ActionLink("بازگشت", "Index")
+}
+</p>

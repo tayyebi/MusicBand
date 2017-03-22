@@ -1,0 +1,50 @@
+﻿@model Symphony.Models.Concert
+
+@{
+    ViewBag.Title = "ویرایش";
+}
+<form method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <h4>کنسرت</h4>
+    <br />
+    @Html.ValidationSummary(true, "لطفا اطلاعات را دقیق وارد نمائید")
+    @Html.HiddenFor(model => model.Id)
+
+    <div>
+        @Html.LabelFor(model => model.Date)
+        <div>
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date, "*", new { @class = "Message" })
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Address)
+        <div>
+            @Html.EditorFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address, "*", new { @class = "Message" })
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Description)
+        <div>
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description, "*", new { @class = "Message" })
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Thumbnail)
+        <div>
+            <input type="file" name="thumbnail" />
+            @Html.ValidationMessageFor(model => model.Thumbnail, "*", new { @class = "Message" })
+        </div>
+    </div>
+
+    <input type="submit" value="ذخیره" />
+</form>
+@if (!Request.IsAjaxRequest())
+{
+@Html.ActionLink("بازگشت", "Index")
+}

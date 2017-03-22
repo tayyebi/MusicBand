@@ -1,0 +1,20 @@
+﻿@model Symphony.Models.Concert
+
+@{
+    ViewBag.Title = Model.Date;
+}
+
+<date>
+    @Html.DisplayFor(model => model.Date)
+</date>
+<address>
+    @Html.DisplayFor(model => model.Address)
+</address>
+<definition>
+    @Html.Raw(Model.Description)
+</definition>
+<thumbnail>
+    @Symphony.Controllers.About.Root.ToString()Thumbs/Concert/@Model.Id
+</thumbnail>
+
+

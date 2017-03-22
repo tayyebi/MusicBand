@@ -1,0 +1,35 @@
+﻿@model Symphony.Models.Stringer
+
+@{
+    ViewBag.Title = "جزئیات";
+}
+<div>
+    <h4>نوازنده</h4>
+    <br />
+    <dl>
+        <dt>
+            @Html.DisplayFor(model => model.FirstName)
+            @Html.DisplayFor(model => model.LastName)
+        </dt>
+        <dd>
+            @Html.Raw(Model.Text)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthYear)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BirthYear)
+        </dd>
+        <dd>
+            <img src="~/Thumbs/Stringer/@Model.Id" />
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id=Model.Id })
+    @Ajax.ActionLink("حذف", "Delete", new { id=Model.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+@if (!Request.IsAjaxRequest())
+{
+    @Html.ActionLink("بازگشت", "Index")
+}
+</p>

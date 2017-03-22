@@ -1,0 +1,15 @@
+﻿@model Symphony.Models.Stringer
+
+@{
+    ViewBag.Title = Model.Fullname;
+}
+<img id="thumbnail" src="@Symphony.Controllers.About.Root.ToString()Thumbs/Stringer/@Model.Id" />
+<h1 id="fullname">
+    @Html.DisplayFor(model => model.Fullname)
+</h1>
+<h2 id="birth">
+    @Html.DisplayFor(model => model.BirthYear)
+</h2>
+<span id="text">
+    @Html.Raw(Model.Text)
+</span>

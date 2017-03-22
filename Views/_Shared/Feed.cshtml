@@ -1,0 +1,18 @@
+﻿<rss xmlns:media="@Symphony.Controllers.About.Root" version="2.0" encoding="UTF-8">
+    <channel>
+        <title>@ViewBag.Title</title>
+        <link>@Symphony.Controllers.About.Root</link>
+        <description>تولید شده در همدان - ایران</description>
+        <language>fa-IR</language>
+        <copyright>تمامی حقوق برای @Symphony.Controllers.About.Name محفوظ است</copyright>
+        <pubdate>@DateTime.Now.ToLongDateString()</pubdate>
+        <image>
+            <title>@Symphony.Controllers.About.Name</title>
+            <link>@HttpContext.Current.Request.Url.Scheme.ToString()://@HttpContext.Current.Request.Url.Host.ToString():@HttpContext.Current.Request.Url.Port.ToString()/</link>
+            <url>@HttpContext.Current.Request.Url.Scheme.ToString()://@HttpContext.Current.Request.Url.Host.ToString():@HttpContext.Current.Request.Url.Port.ToString()/Logo.png</url>
+        </image>
+
+        @RenderBody()
+
+    </channel>
+</rss>

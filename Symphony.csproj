@@ -1,0 +1,597 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{73448975-9697-4F0C-9A31-C7AE7E20039F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Symphony</RootNamespace>
+    <AssemblyName>Symphony</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\A4Controller.cs" />
+    <Compile Include="Controllers\A3Controller.cs" />
+    <Compile Include="Controllers\A2Controller.cs" />
+    <Compile Include="Controllers\A1Controller.cs" />
+    <Compile Include="Controllers\About.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdvertiesController.cs" />
+    <Compile Include="Controllers\ComposersController.cs" />
+    <Compile Include="Controllers\ConcertsController.cs" />
+    <Compile Include="Controllers\DownloadController.cs" />
+    <Compile Include="Controllers\FilesController.cs" />
+    <Compile Include="Controllers\FoldersController.cs" />
+    <Compile Include="Controllers\GenusController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="App_Code\Thumbnail.cs" />
+    <Compile Include="Controllers\InstrumentsController.cs" />
+    <Compile Include="Controllers\LeadersController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\PicsController.cs" />
+    <Compile Include="Controllers\PublicController.cs" />
+    <Compile Include="Controllers\RSSController.cs" />
+    <Compile Include="Controllers\StringersController.cs" />
+    <Compile Include="Controllers\ThumbsController.cs" />
+    <Compile Include="Controllers\TracksController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\A1.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\A2.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\A3.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\A4.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admin.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Adverties.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Composer.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Concert.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\File.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Folder.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Genus.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Instrument.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Leader.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\News.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Picture.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Stringer.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Track.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\_Model.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="App_Code\Secure.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Database.mdf" />
+    <Content Include="App_Data\Database_log.ldf">
+      <DependentUpon>Database.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\Images\loading.gif" />
+    <Content Include="Content\Images\paisley.png" />
+    <Content Include="Content\Images\paisley_border.png" />
+    <Content Include="Content\_Application\Public\Adverties.css" />
+    <Content Include="Content\_Application\Public\Genus.css" />
+    <Content Include="Content\_Application\Public\Stringers.css" />
+    <Content Include="Content\_Application\Public\Index.css" />
+    <Content Include="Content\_Application\Public\Concert.css" />
+    <Content Include="Content\_Application\Public\Instrument.css" />
+    <Content Include="Content\_Application\Public\Composer.css" />
+    <Content Include="Content\_Application\Public\News.css" />
+    <Content Include="Content\_Application\Public\Track.css" />
+    <Content Include="Content\_Application\Public\Stringer.css" />
+    <Content Include="Content\_Application\Public\Leader.css" />
+    <Content Include="Content\_Application\Public\NewsTop.css" />
+    <Content Include="Content\_Application\_menu.css" />
+    <Content Include="Content\Theme\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\Theme\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\Theme\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\Theme\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Theme\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\Theme\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\Theme\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\Theme\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\Theme\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Theme\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\Theme\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\Theme\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\Theme\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\Theme\jquery-ui.css" />
+    <Content Include="Content\Theme\jquery-ui.structure.css" />
+    <Content Include="Content\Theme\jquery-ui.theme.css" />
+    <Content Include="Content\_Application\_Layout.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\Model.edmx.sql" />
+    <Content Include="Content\_Application\Public\img\rhinoslider-sprite.png" />
+    <Content Include="Content\_Application\Public\img\slider\01.jpg" />
+    <Content Include="Content\_Application\Public\img\slider\02.jpg" />
+    <Content Include="Content\_Application\Public\img\slider\03.jpg" />
+    <Content Include="Content\_Application\Public\img\slider\04.jpg" />
+    <Content Include="Content\_Application\Public\img\slider\05.jpg" />
+    <Content Include="Scripts\html5.js" />
+    <Content Include="Scripts\jgestures.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Content\_Application\_Layout.less" />
+    <Content Include="Content\IranNastaliq.eot" />
+    <Content Include="Content\IranNastaliq.ttf" />
+    <Content Include="Content\IranNastaliq.woff" />
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="CodeTemplates\MvcView\Create.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Delete.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Details.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Edit.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\Imports.include.t4" />
+    <Content Include="CodeTemplates\MvcView\List.cs.t4" />
+    <Content Include="CodeTemplates\MvcView\ModelMetadataFunctions.cs.include.t4" />
+    <Content Include="CodeTemplates\MvcControllerWithContext\Controller.cs.t4" />
+    <None Include="Properties\PublishProfiles\Symphony.pubxml" />
+    <None Include="Scripts\jquery.intellisense.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.mintScrollbar.js" />
+    <Content Include="Scripts\jquery.mousewheel.min.js" />
+    <Content Include="Scripts\jquery.newsTicker.js" />
+    <Content Include="Scripts\jquery.tagcanvas.js" />
+    <Content Include="Scripts\jquery.tinyscrollbar.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\knockout.debug.js" />
+    <Content Include="Scripts\knockout.js" />
+    <Content Include="Scripts\loading.gif" />
+    <Content Include="Scripts\modernizr.js" />
+    <Content Include="Scripts\tagcanvas.js" />
+    <Content Include="Scripts\tinymce\langs\readme.md" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\readme.md" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\tinymce\license.txt" />
+    <Content Include="Scripts\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="Scripts\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\example\dialog.html" />
+    <Content Include="Scripts\tinymce\plugins\example\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\example_dependency\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\layer\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\media\moxieplayer.swf" />
+    <Content Include="Scripts\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Scripts\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="Scripts\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="Scripts\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.dev.svg" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.dev.svg" />
+    <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="Scripts\tinymce\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="Scripts\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="Scripts\tinymce\themes\modern\theme.min.js" />
+    <Content Include="Scripts\tinymce\tinymce.min.js" />
+    <Content Include="Scripts\turn.html4.js" />
+    <Content Include="Scripts\turn.js" />
+    <Content Include="Scripts\turn_hash.js" />
+    <Content Include="Scripts\turn_scissor.js" />
+    <Content Include="Scripts\turn_zoom.js" />
+    <Content Include="Scripts\_Application\Public.js" />
+    <Content Include="Scripts\_Application\Public\Adverties.js" />
+    <Content Include="Scripts\_Application\Public\News.js" />
+    <Content Include="Scripts\_Application\Public\Stringers.js" />
+    <Content Include="Scripts\_Application\Public\Track.js" />
+    <Content Include="Scripts\_Application\Public\Composer.js" />
+    <Content Include="Scripts\_Application\Public\Concert.js" />
+    <Content Include="Scripts\_Application\Public\Instrument.js" />
+    <Content Include="Scripts\_Application\Public\Genus.js" />
+    <Content Include="Scripts\_Application\Public\Leader.js" />
+    <Content Include="Scripts\_Application\Public\Index.js" />
+    <Content Include="Scripts\_Application\Public\NewsTop.js" />
+    <Content Include="Scripts\_Application\_layout.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\_Shared\_Layout.cshtml" />
+    <Content Include="Views\_Shared\Admin.cshtml" />
+    <Content Include="Views\Instruments\Create.cshtml" />
+    <Content Include="Views\Instruments\Delete.cshtml" />
+    <Content Include="Views\Instruments\Details.cshtml" />
+    <Content Include="Views\Instruments\Edit.cshtml" />
+    <Content Include="Views\Instruments\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Stringers\Create.cshtml" />
+    <Content Include="Views\Stringers\Delete.cshtml" />
+    <Content Include="Views\Stringers\Details.cshtml" />
+    <Content Include="Views\Stringers\Edit.cshtml" />
+    <Content Include="Views\Stringers\Index.cshtml" />
+    <Content Include="Views\Concerts\Create.cshtml" />
+    <Content Include="Views\Concerts\Delete.cshtml" />
+    <Content Include="Views\Concerts\Details.cshtml" />
+    <Content Include="Views\Concerts\Edit.cshtml" />
+    <Content Include="Views\Concerts\Index.cshtml" />
+    <Content Include="Views\Leaders\Create.cshtml" />
+    <Content Include="Views\Leaders\Delete.cshtml" />
+    <Content Include="Views\Leaders\Details.cshtml" />
+    <Content Include="Views\Leaders\Edit.cshtml" />
+    <Content Include="Views\Leaders\Index.cshtml" />
+    <Content Include="Views\Genus\Create.cshtml" />
+    <Content Include="Views\Genus\Delete.cshtml" />
+    <Content Include="Views\Genus\Details.cshtml" />
+    <Content Include="Views\Genus\Edit.cshtml" />
+    <Content Include="Views\Genus\Index.cshtml" />
+    <Content Include="Views\Composers\Create.cshtml" />
+    <Content Include="Views\Composers\Delete.cshtml" />
+    <Content Include="Views\Composers\Details.cshtml" />
+    <Content Include="Views\Composers\Edit.cshtml" />
+    <Content Include="Views\Composers\Index.cshtml" />
+    <Content Include="Views\Tracks\Create.cshtml" />
+    <Content Include="Views\Tracks\Delete.cshtml" />
+    <Content Include="Views\Tracks\Details.cshtml" />
+    <Content Include="Views\Tracks\Edit.cshtml" />
+    <Content Include="Views\Tracks\Index.cshtml" />
+    <Content Include="Views\A1\Create.cshtml" />
+    <Content Include="Views\A1\Delete.cshtml" />
+    <Content Include="Views\A1\Index.cshtml" />
+    <Content Include="Views\A2\Create.cshtml" />
+    <Content Include="Views\A2\Delete.cshtml" />
+    <Content Include="Views\A2\Index.cshtml" />
+    <Content Include="Views\A3\Create.cshtml" />
+    <Content Include="Views\A3\Delete.cshtml" />
+    <Content Include="Views\A3\Index.cshtml" />
+    <Content Include="Views\A4\Create.cshtml" />
+    <Content Include="Views\A4\Delete.cshtml" />
+    <Content Include="Views\A4\Index.cshtml" />
+    <Content Include="Views\News\Create.cshtml" />
+    <Content Include="Views\News\Delete.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\News\Edit.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Pics\Create.cshtml" />
+    <Content Include="Views\Pics\Index.cshtml" />
+    <Content Include="Views\_Shared\Feed.cshtml" />
+    <Content Include="Views\RSS\News_Top.cshtml" />
+    <Content Include="Views\Tracks\_ViewStart.cshtml" />
+    <Content Include="Views\Stringers\_ViewStart.cshtml" />
+    <Content Include="Views\Pics\_ViewStart.cshtml" />
+    <Content Include="Views\News\_ViewStart.cshtml" />
+    <Content Include="Views\Leaders\_ViewStart.cshtml" />
+    <Content Include="Views\Instruments\_ViewStart.cshtml" />
+    <Content Include="Views\Genus\_ViewStart.cshtml" />
+    <Content Include="Views\Concerts\_ViewStart.cshtml" />
+    <Content Include="Views\Composers\_ViewStart.cshtml" />
+    <Content Include="Views\Admin\_ViewStart.cshtml" />
+    <Content Include="Views\A4\_ViewStart.cshtml" />
+    <Content Include="Views\A3\_ViewStart.cshtml" />
+    <Content Include="Views\A2\_ViewStart.cshtml" />
+    <Content Include="Views\A1\_ViewStart.cshtml" />
+    <Content Include="Views\RSS\_ViewStart.cshtml" />
+    <Content Include="Views\RSS\News_Details.cshtml" />
+    <Content Include="Views\_Shared\Public.cshtml" />
+    <Content Include="Views\RSS\Leader.cshtml" />
+    <Content Include="Views\RSS\Stringers.cshtml" />
+    <Content Include="Views\RSS\Genus.cshtml" />
+    <Content Include="Views\RSS\Instruments.cshtml" />
+    <Content Include="Views\Adverties\Create.cshtml" />
+    <Content Include="Views\Adverties\Delete.cshtml" />
+    <Content Include="Views\Adverties\Details.cshtml" />
+    <Content Include="Views\Adverties\Edit.cshtml" />
+    <Content Include="Views\Adverties\Index.cshtml" />
+    <Content Include="Views\RSS\Adverties.cshtml" />
+    <Content Include="Views\Adverties\_ViewStart.cshtml" />
+    <Content Include="Views\RSS\Tracks.cshtml" />
+    <Content Include="Views\RSS\Instrument_Details.cshtml" />
+    <Content Include="Views\RSS\Genus_Details.cshtml" />
+    <Content Include="Views\RSS\Leader_Details.cshtml" />
+    <Content Include="Views\RSS\Stringer_Details.cshtml" />
+    <Content Include="Views\RSS\Track_Details.cshtml" />
+    <Content Include="Views\RSS\Composer_Details.cshtml" />
+    <Content Include="Views\RSS\Gallery.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Files\Create.cshtml" />
+    <Content Include="Views\Files\Delete.cshtml" />
+    <Content Include="Views\Files\Index.cshtml" />
+    <Content Include="Views\Folders\Create.cshtml" />
+    <Content Include="Views\Folders\Delete.cshtml" />
+    <Content Include="Views\Folders\Edit.cshtml" />
+    <Content Include="Views\Folders\Index.cshtml" />
+    <Content Include="Views\Folders\_ViewStart.cshtml" />
+    <Content Include="Views\Files\_ViewStart.cshtml" />
+    <Content Include="Views\RSS\Concerts.cshtml" />
+    <Content Include="Views\RSS\Concert_Details.cshtml" />
+    <Content Include="Views\Pics\Delete.cshtml" />
+    <Content Include="Views\Pics\Edit.cshtml" />
+    <Content Include="Views\Public\Index.cshtml" />
+    <Content Include="Views\Public\_ViewStart.cshtml" />
+    <Content Include="Views\Public\Leader.cshtml" />
+    <Content Include="Views\Public\NewsTop.cshtml" />
+    <Content Include="Views\Public\Adverties.cshtml" />
+    <Content Include="Views\Public\Concert.cshtml" />
+    <Content Include="Views\Public\Genus.cshtml" />
+    <Content Include="Views\Public\Instrument.cshtml" />
+    <Content Include="Views\Public\Stringer.cshtml" />
+    <Content Include="Views\Public\Composer.cshtml" />
+    <Content Include="Views\Public\Track.cshtml" />
+    <Content Include="Views\Public\News.cshtml" />
+    <Content Include="Views\Public\Stringers.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Download\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3430</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3430/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

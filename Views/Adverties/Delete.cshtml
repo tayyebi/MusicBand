@@ -1,0 +1,25 @@
+﻿@model Symphony.Models.Adverties
+
+@{
+    ViewBag.Title = "حذف";
+}
+<div>
+    <h4>تبلیغات</h4>
+    <br />
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+        <dd>
+            <a href="@Html.DisplayFor(model => model.Url)">@Html.DisplayFor(model => model.Title)</a>
+        </dd>
+    </dl>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+            <input type="submit" value="حذف"/>
+    }
+</div>
+@if (!Request.IsAjaxRequest())
+{
+@Html.ActionLink("بازگشت", "Index")
+}

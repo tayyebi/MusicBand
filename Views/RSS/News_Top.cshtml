@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Symphony.Models.News>
+@{
+    ViewBag.Title = "اخبار";
+}
+
+@foreach (var item in Model)
+{
+<item>
+    <id>@Html.DisplayFor(modelItem => item.Id)</id>
+    <headline>
+        @Html.DisplayFor(modelItem => item.Title)
+    </headline>
+    <date>
+        @Html.DisplayFor(modelItem => item.Date)
+    </date>
+    <abstract>
+        @Html.DisplayFor(modelItem => item.Abstract)
+    </abstract>
+    <thumbnail>
+        @Symphony.Controllers.About.Root.ToString()Thumbs/News/@item.Id
+    </thumbnail>
+</item>
+}

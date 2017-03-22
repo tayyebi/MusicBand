@@ -1,0 +1,7 @@
+﻿.Stage #thumbnail{
+    display:block;
+    margin: 0 auto 0 auto;
+    border-radius:2em;
+    width: 20em;
+    max-height:20em;
+}

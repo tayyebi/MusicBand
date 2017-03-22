@@ -1,0 +1,228 @@
+﻿@font-face {
+    font-family: 'IranNastaliq';
+    src: url('../../IranNastaliq.eot') format('eot'),
+    url('../../IranNastaliq.ttf') format('truetype'),
+    url('../IranNastaliq.woff') format('woff');
+}
+html , body{
+    display:block;
+    width:100%;
+    height:100%;
+    padding:0;
+    margin:0;
+}
+* {
+    /*cursor: url('cursor.png'),none;*/
+}
+
+a, input, textarea {
+    -webkit-transition: width 1s, height 1s, background 1s, color 1s, font 1s, box-shadow 2s, -webkit-transform 1s, opacity 2s, border 1s;
+    transition: width 1s, height 1s, background 1s, color 1s, font 1s, box-shadow 2s, transform 1s, opacity 2s, border 1s;
+}
+
+body {
+    background-image:url(../Images/paisley.png);
+}
+
+h1, h2, h3, h4, h5, h6, legend, p, header, footer, .Stage , .menu, .tracks{
+    font-family: IranNastaliq;
+    font-weight: normal;
+}
+header h1{
+    display:block;
+    padding-right:2em;
+    text-shadow: 0 0 .5em #e5e5e5;
+    margin:0;
+}
+table a, button, input, textarea, select {
+   width:auto;
+   direction:rtl;
+}
+select, option{
+    min-width:20em;
+}
+
+img {
+}
+
+a {
+}
+
+    a:hover, a:active, a:focus {
+    }
+
+input[type="text"], input[type="password"], input[type="number"] {
+}
+
+input[type="number"] {
+    margin: 0;
+}
+
+    input[type="text"]:hover, input[type="password"]:hover, input[type="text"]:focus, input[type="password"]:focus, input[type="text"]:active, input[type="password"]:active, input[type="number"]:hover, input[type="number"]:active, input[type="number"]:focus {
+    }
+
+table a, button, input[type="submit"], input[type="button"], input[type="reset"] {
+}
+
+    table a:hover, table a:focus, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:focus, input[type="button"]:focus, input[type="reset"]:focus, button:hover, button:focus {
+    }
+
+    table a:active, [type="submit"]:active, input[type="button"]:active, input[type="reset"]:active, button:active {
+    }
+
+textarea {
+}
+
+    textarea:hover, textarea:active, textarea:focus {
+    }
+
+input[type="checkbox"] + label:before {
+}
+
+input[type="checkbox"]:checked + label:before {
+}
+
+input[type="checkbox"]:disabled + label:before {
+}
+
+input[type="checkbox"]:checked:disabled + label:before {
+}
+
+input[type="checkbox"]:focus + label:before {
+}
+
+select {
+}
+
+table {
+	margin:0px;padding:0px;
+	width:100%;
+	box-shadow: 10px 10px 5px #888888;
+	border:1px solid #000000;
+	
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+	
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+	
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+	
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	margin:0px;padding:0px;
+}table tr:last-child td:last-child {
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+}
+table tr:first-child td:first-child {
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}
+table tr:first-child td:last-child {
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+}table tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+}table tr:hover td{
+	
+}
+table tr:nth-child(odd){ background-color:#e5e5e5; }
+table tr:nth-child(even)    { background-color:#ffffff; }table td{
+	vertical-align:middle;
+	
+	
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	color:#000000;
+}table tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}table tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}table tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+table tr:first-child td{
+		background:-o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
+	background:-moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");	background: -o-linear-gradient(top,#cccccc,b2b2b2);
+
+	background-color:#cccccc;
+	border:0px solid #000000;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+
+	color:#000000;
+}
+table tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #cccccc 5%, #b2b2b2 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #cccccc), color-stop(1, #b2b2b2) );
+	background:-moz-linear-gradient( center top, #cccccc 5%, #b2b2b2 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#cccccc", endColorstr="#b2b2b2");	background: -o-linear-gradient(top,#cccccc,b2b2b2);
+
+	background-color:#cccccc;
+}
+table tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+table tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
+}
+
+
+
+footer{
+    font-size:x-small;
+    position:fixed;
+    text-align:center;
+    bottom:0;
+    width:100%;
+}
+footer a{
+    text-decoration:none;
+    color:inherit;
+}
+.Stage {
+    padding:2em;
+    display:block;
+    margin:0em 2em 1em 2em;
+    border-color: black;
+    border-style: solid;
+    border-bottom-left-radius:.5em;
+    border-bottom-right-radius:.5em;
+    border-width: 25px 60px 10px 20px;
+    border-bottom:none;
+    border-left:none;
+    border-right:none;
+    border-image: url(../Images/paisley_border.png) 25 30 10 20 repeat;
+}
+
+.tracks{
+    /*background-color:#cccccc;*/
+    margin:0 0 0 0;
+    padding-left:1em;
+    padding-right:1em;
+    text-align:center;
+    text-shadow:0 0 1em #000000;
+}
+.tracks a{
+    color:inherit;
+    text-decoration:none;
+}
+.tracks a:hover, .tracks a:focus{
+    text-decoration:underline;
+}

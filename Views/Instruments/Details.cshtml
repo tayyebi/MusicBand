@@ -1,0 +1,28 @@
+﻿@model Symphony.Models.Instrument
+
+@{
+    ViewBag.Title = "جزئیات";
+}
+<div>
+    <h4>ساز</h4>
+    <br />
+    <dl>
+        <dd>
+            <img src="~/Thumbs/Instrument/@Model.Id" />
+        </dd>
+        <dt>
+            @Html.DisplayFor(model => model.Name) - @Html.DisplayFor(model => model.Genu.Title)
+        </dt>
+        <dd>
+            @Html.Raw(Model.Text)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id = Model.Id })
+    @Ajax.ActionLink("حذف", "Delete", new { id=Model.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+@if (!Request.IsAjaxRequest())
+{
+    @Html.ActionLink("بازگشت", "Index")
+}
+</p>

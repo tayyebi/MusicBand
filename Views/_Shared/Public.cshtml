@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+<ul class="menu">
+    <li><a href="~/">خانه</a></li>
+    <li><a href="~/Public/Stringers">نوازندگان و خوانندگان</a></li>
+    <li>
+        <a>درباره</a>
+        <ul class="submenu">
+            <li><a href="~/Public/Leader">رهبر</a></li>
+            <li><a href="~/Public/NewsTop">خبر و اطلاعیه</a></li>
+            <li><a href="~/Public/Adverties">پوستر</a></li>
+        </ul>
+    </li>
+    <li>
+        <a>کنسرت ها</a>
+        <ul class="submenu" id="concerts"></ul>
+    </li>
+    <li>
+        <a>ساز ها</a>
+        <ul class="submenu" id="instruments"></ul>
+    </li>
+</ul>
+<div class="tracks"></div>
+<div class="Stage" id="Stage">
+    @RenderBody()
+</div>
+@section footer{
+    <a href="~/">ارکستر الوند همدان</a>
+}

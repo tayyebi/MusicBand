@@ -1,0 +1,117 @@
+﻿@{
+    string _Controller = null;
+    string _Action = null;
+    string _Id = null;
+    string _Option = null;
+    try
+    {
+        _Controller = ViewContext.RouteData.Values["controller"].ToString();
+        _Action = ViewContext.RouteData.Values["action"].ToString();
+        _Id = ViewContext.RouteData.Values["id"].ToString();
+        _Option = ViewContext.RouteData.Values["option"].ToString();
+    }
+    catch { }
+
+    string _ControllerJs = _Controller + ".js";
+    string _ActionJs = _Action + ".js";
+    string _IdJs = _Id + ".js";
+
+    string _ControllerCss = _Controller + ".css";
+    string _ActionCss = _Action + ".css";
+    string _IdCss = _Id + ".css";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="MRezaTayyebi" content="برنامه نویسی شده و توسعه داده شده توسط محمدرضا طیبی - 3860995243 - ایران" />
+    @RenderSection("Meta", required: false)
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/Theme/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/_Application/_menu.css" rel="stylesheet" />
+    <link rel="stylesheet/less" href="~/Content/_Application/_Layout.less" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/_Application/_Layout.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/_Application/@_ControllerCss" />
+    @if (_ActionCss != ".css")
+    {
+        <link rel="stylesheet" type="text/css" href="~/Content/_Application/@_Controller/@_ActionCss" />
+        if (_IdCss != ".css")
+        {
+            <link rel="stylesheet" type="text/css" href="~/Content/_Application/@_Controller/@_Action/@_IdCss" />
+        }
+    }
+    
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/modernizr.js"></script>
+
+    <script type="text/javascript">
+        /*با توجه به صرف وقت و هزینه در تهیه تمامی بخش های این نرم افزار، لطفا با ذکر نام توسعه دهنده (محمدرضا طیبی) از کد نرم افزار استفاده نمائید.*/
+        var Root = location.protocol.toLowerCase() + '//' + location.host.toLowerCase();
+        var URL = window.location.toString().toLowerCase().replace(Root + '/', '').replace(/([^:]\/)\/+/g, '$1').replace(/^\//, '').replace(/^\/|\/$/g, '').toLowerCase().split('/');
+        var RssRoot = Root + "/RSS";
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+				results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        var QueryString_Id = getParameterByName('id');
+    </script>
+    <script type="text/javascript" src="~/Scripts/tinymce/tinymce.min.js"></script>
+    <script>
+        tinymce.init({ selector: ".html", plugins: ["advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker", "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking", "table contextmenu directionality emoticons template textcolor paste fullpage textcolor colorpicker textpattern"], toolbar1: "newdocument fullpage | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect", toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor", toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | spellchecker | visualchars visualblocks nonbreaking template pagebreak restoredraft", menubar: true, toolbar_items_size: "small", style_formats: [{ title: "Bold text", inline: "b" }, { title: "Red text", inline: "span", styles: { color: "#ff0000" } }, { title: "Red header", block: "h1", styles: { color: "#ff0000" } }, { title: "Example 1", inline: "span", classes: "example1" }, { title: "Example 2", inline: "span", classes: "example2" }, { title: "Table styles" }, { title: "Table row 1", selector: "tr", classes: "tablerow1" }], templates: [{ title: "Test template 1", content: "Test 1" }, { title: "Test template 2", content: "Test 2" }] })
+    </script>
+    @RenderSection("head",required:false)
+</head>
+<body style="direction:rtl">
+    <div class="loading" style="/*display:none;*/z-index:100;position:fixed;top:0;background-color:rgba(0, 0, 0, 0.90);width:100%;height:100%;text-align:center;color:rgb(237, 255, 0);text-shadow:0 0 1em;"><img style="display:block;margin:20% auto auto auto;max-height:30%;max-width:60%;" src="~/Content/Images/loading.gif" /><br />در حال بارگذاری. لطفا صبور باشید.</div>
+    <header>
+        <h1>@ViewBag.Title</h1>
+        @RenderSection("header", required: false)
+    </header>
+    @if (ViewBag.Message != null)
+    {
+        <div class="Message" id="Message">
+            @ViewBag.Message
+        </div>
+    }
+    <div class="Dynamic" id="Dynamic" style="display:none;">
+        @RenderSection("dynamic", false)
+    </div>
+
+        @RenderBody()
+
+    <script src="~/Scripts/_Application/_Layout.js"></script>
+    <script src="~/Scripts/_Application/@_ControllerJs"></script>
+    @if (_ActionJs != ".js")
+    {
+        <script src="~/Scripts/_Application/@_Controller/@_ActionJs"></script>
+        if (_IdJs != ".js")
+        {
+            <script src="~/Scripts/_Application/@_Controller/@_Action/@_IdJs"></script>
+        }
+    }
+    <script type="text/javascript">
+        $('#Dynamic').hide();
+        function JsDynamic() {
+            $('#Dynamic').dialog({
+                show: { effect: 'drop', direction: "up" },
+                modal: true
+            });
+        }
+        $(document).ready(function () {
+            $('.loading').hide();
+        });
+        @RenderSection("scripts", required: false)
+    </script>
+    <footer>
+        @RenderSection("footer", required: false)
+    </footer>
+</body>
+</html>

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Symphony.Models.Instrument>
+@{
+    ViewBag.Title = "سازها";
+}
+
+@foreach (var item in Model)
+{
+    <item>
+        <id>@Html.DisplayFor(modelitem => item.Id)</id>
+        <name>
+            @Html.DisplayFor(modelItem => item.Name)
+        </name>
+        <thumbnail>
+            @Symphony.Controllers.About.Root.ToString()Thumbs/Instrument/@item.Id
+        </thumbnail>
+    </item>
+}

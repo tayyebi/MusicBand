@@ -1,0 +1,988 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Instruments" EntityType="Model.Store.Instruments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Admins" EntityType="Model.Store.Admins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Concerts" EntityType="Model.Store.Concerts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Stringers" EntityType="Model.Store.Stringers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tracks" EntityType="Model.Store.Tracks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pics" EntityType="Model.Store.Pics" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Leaders" EntityType="Model.Store.Leaders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="A1" EntityType="Model.Store.A1" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="A2" EntityType="Model.Store.A2" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="A3" EntityType="Model.Store.A3" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="A4" EntityType="Model.Store.A4" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Composers" EntityType="Model.Store.Composers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Genus" EntityType="Model.Store.Genus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Adverties" EntityType="Model.Store.Adverties" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="News" EntityType="Model.Store.News" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Folders" EntityType="Model.Store.Folders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Files" EntityType="Model.Store.Files" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="ComposerTrack" Association="Model.Store.ComposerTrack">
+      <End Role="Composer" EntitySet="Composers" />
+      <End Role="Track" EntitySet="Tracks" />
+    </AssociationSet>
+    <AssociationSet Name="GenusInstrument" Association="Model.Store.GenusInstrument">
+      <End Role="Genus" EntitySet="Genus" />
+      <End Role="Instrument" EntitySet="Instruments" />
+    </AssociationSet>
+    <AssociationSet Name="InstrumentA1" Association="Model.Store.InstrumentA1">
+      <End Role="Instrument" EntitySet="Instruments" />
+      <End Role="A1" EntitySet="A1" />
+    </AssociationSet>
+    <AssociationSet Name="StringerA1" Association="Model.Store.StringerA1">
+      <End Role="Stringer" EntitySet="Stringers" />
+      <End Role="A1" EntitySet="A1" />
+    </AssociationSet>
+    <AssociationSet Name="A1A2" Association="Model.Store.A1A2">
+      <End Role="A1" EntitySet="A1" />
+      <End Role="A2" EntitySet="A2" />
+    </AssociationSet>
+    <AssociationSet Name="TrackA2" Association="Model.Store.TrackA2">
+      <End Role="Track" EntitySet="Tracks" />
+      <End Role="A2" EntitySet="A2" />
+    </AssociationSet>
+    <AssociationSet Name="TrackA3" Association="Model.Store.TrackA3">
+      <End Role="Track" EntitySet="Tracks" />
+      <End Role="A3" EntitySet="A3" />
+    </AssociationSet>
+    <AssociationSet Name="ConcertA3" Association="Model.Store.ConcertA3">
+      <End Role="Concert" EntitySet="Concerts" />
+      <End Role="A3" EntitySet="A3" />
+    </AssociationSet>
+    <AssociationSet Name="ConcertA4" Association="Model.Store.ConcertA4">
+      <End Role="Concert" EntitySet="Concerts" />
+      <End Role="A4" EntitySet="A4" />
+    </AssociationSet>
+    <AssociationSet Name="LeaderA4" Association="Model.Store.LeaderA4">
+      <End Role="Leader" EntitySet="Leaders" />
+      <End Role="A4" EntitySet="A4" />
+    </AssociationSet>
+    <AssociationSet Name="FolderFile" Association="Model.Store.FolderFile">
+      <End Role="Folder" EntitySet="Folders" />
+      <End Role="File" EntitySet="Files" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Instruments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Thumbnail" Type="varbinary(max)" Nullable="true" />
+    <Property Name="GenusId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="Username" />
+    </Key>
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Concerts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Thumbnail" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Stringers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BirthYear" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Thumbnail" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Tracks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Thumbnail" Type="varbinary(max)" Nullable="true" />
+    <Property Name="ComposerId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pics">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Thumb" Type="varbinary(max)" Nullable="true" />
+    <Property Name="Bytes" Type="varbinary(max)" Nullable="true" />
+    <Property Name="ConcertId" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="StringerId" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="TrackId" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="LeaderId" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="InstrumentId" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="GenusId" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="ComposerId" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="NewsId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Leaders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BirthYear" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Thumbnail" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="A1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstrumentId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="StringerId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="A2">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="A1Id" Type="int" Nullable="false" />
+    <Property Name="TrackId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="A3">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrackId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ConcertId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="A4">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConcertId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LeaderId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Composers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fullname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Thumbnail" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Genus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Thumbnail" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Adverties">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Image" Type="varbinary(max)" Nullable="false" />
+    <Property Name="Url" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Date" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Abstract" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Thumbnail" Type="varbinary(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Folders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Parent" Type="int" Nullable="true" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Files">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Lenght" Type="int" Nullable="false" />
+    <Property Name="Bytes" Type="varbinary(max)" Nullable="false" />
+    <Property Name="FolderId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ComposerTrack">
+    <End Role="Composer" Type="Model.Store.Composers" Multiplicity="1" />
+    <End Role="Track" Type="Model.Store.Tracks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Composer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Track">
+        <PropertyRef Name="ComposerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="GenusInstrument">
+    <End Role="Genus" Type="Model.Store.Genus" Multiplicity="1" />
+    <End Role="Instrument" Type="Model.Store.Instruments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instrument">
+        <PropertyRef Name="GenusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InstrumentA1">
+    <End Role="Instrument" Type="Model.Store.Instruments" Multiplicity="1" />
+    <End Role="A1" Type="Model.Store.A1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instrument">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="A1">
+        <PropertyRef Name="InstrumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StringerA1">
+    <End Role="Stringer" Type="Model.Store.Stringers" Multiplicity="1" />
+    <End Role="A1" Type="Model.Store.A1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stringer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="A1">
+        <PropertyRef Name="StringerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="A1A2">
+    <End Role="A1" Type="Model.Store.A1" Multiplicity="1" />
+    <End Role="A2" Type="Model.Store.A2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="A1">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="A2">
+        <PropertyRef Name="A1Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrackA2">
+    <End Role="Track" Type="Model.Store.Tracks" Multiplicity="1" />
+    <End Role="A2" Type="Model.Store.A2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Track">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="A2">
+        <PropertyRef Name="TrackId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrackA3">
+    <End Role="Track" Type="Model.Store.Tracks" Multiplicity="1" />
+    <End Role="A3" Type="Model.Store.A3" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Track">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="A3">
+        <PropertyRef Name="TrackId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ConcertA3">
+    <End Role="Concert" Type="Model.Store.Concerts" Multiplicity="1" />
+    <End Role="A3" Type="Model.Store.A3" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Concert">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="A3">
+        <PropertyRef Name="ConcertId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ConcertA4">
+    <End Role="Concert" Type="Model.Store.Concerts" Multiplicity="1" />
+    <End Role="A4" Type="Model.Store.A4" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Concert">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="A4">
+        <PropertyRef Name="ConcertId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LeaderA4">
+    <End Role="Leader" Type="Model.Store.Leaders" Multiplicity="1" />
+    <End Role="A4" Type="Model.Store.A4" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Leader">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="A4">
+        <PropertyRef Name="LeaderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FolderFile">
+    <End Role="Folder" Type="Model.Store.Folders" Multiplicity="1" />
+    <End Role="File" Type="Model.Store.Files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Folder">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="File">
+        <PropertyRef Name="FolderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Instruments" EntityType="Model.Instrument" />
+          <EntitySet Name="Admins" EntityType="Model.Admin" />
+          <EntitySet Name="Concerts" EntityType="Model.Concert" />
+          <EntitySet Name="Stringers" EntityType="Model.Stringer" />
+          <EntitySet Name="Tracks" EntityType="Model.Track" />
+          <EntitySet Name="Pics" EntityType="Model.Picture" />
+          <EntitySet Name="Leaders" EntityType="Model.Leader" />
+          <EntitySet Name="A1" EntityType="Model.A1" />
+          <EntitySet Name="A2" EntityType="Model.A2" />
+          <EntitySet Name="A3" EntityType="Model.A3" />
+          <EntitySet Name="A4" EntityType="Model.A4" />
+          <EntitySet Name="Composers" EntityType="Model.Composer" />
+          <AssociationSet Name="ComposerTrack" Association="Model.ComposerTrack">
+            <End Role="Composer" EntitySet="Composers" />
+            <End Role="Track" EntitySet="Tracks" />
+          </AssociationSet>
+          <EntitySet Name="Genus" EntityType="Model.Genus" />
+          <AssociationSet Name="GenusInstrument" Association="Model.GenusInstrument">
+            <End Role="Genus" EntitySet="Genus" />
+            <End Role="Instrument" EntitySet="Instruments" />
+          </AssociationSet>
+          <AssociationSet Name="InstrumentA1" Association="Model.InstrumentA1">
+            <End Role="Instrument" EntitySet="Instruments" />
+            <End Role="A1" EntitySet="A1" />
+          </AssociationSet>
+          <AssociationSet Name="StringerA1" Association="Model.StringerA1">
+            <End Role="Stringer" EntitySet="Stringers" />
+            <End Role="A1" EntitySet="A1" />
+          </AssociationSet>
+          <AssociationSet Name="A1A2" Association="Model.A1A2">
+            <End Role="A1" EntitySet="A1" />
+            <End Role="A2" EntitySet="A2" />
+          </AssociationSet>
+          <AssociationSet Name="TrackA2" Association="Model.TrackA2">
+            <End Role="Track" EntitySet="Tracks" />
+            <End Role="A2" EntitySet="A2" />
+          </AssociationSet>
+          <AssociationSet Name="TrackA3" Association="Model.TrackA3">
+            <End Role="Track" EntitySet="Tracks" />
+            <End Role="A3" EntitySet="A3" />
+          </AssociationSet>
+          <AssociationSet Name="ConcertA3" Association="Model.ConcertA3">
+            <End Role="Concert" EntitySet="Concerts" />
+            <End Role="A3" EntitySet="A3" />
+          </AssociationSet>
+          <AssociationSet Name="ConcertA4" Association="Model.ConcertA4">
+            <End Role="Concert" EntitySet="Concerts" />
+            <End Role="A4" EntitySet="A4" />
+          </AssociationSet>
+          <AssociationSet Name="LeaderA4" Association="Model.LeaderA4">
+            <End Role="Leader" EntitySet="Leaders" />
+            <End Role="A4" EntitySet="A4" />
+          </AssociationSet>
+          <EntitySet Name="Adverties" EntityType="Model.Adverties" />
+          <EntitySet Name="News" EntityType="Model.News" />
+          <EntitySet Name="Folders" EntityType="Model.Folder" />
+          <EntitySet Name="Files" EntityType="Model.File" />
+          <AssociationSet Name="FolderFile" Association="Model.FolderFile">
+            <End Role="Folder" EntitySet="Folders" />
+            <End Role="File" EntitySet="Files" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Instrument">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Text" Type="String" />
+          <Property Name="Thumbnail" Type="Binary" />
+          <NavigationProperty Name="Genu" Relationship="Model.GenusInstrument" FromRole="Instrument" ToRole="Genus" />
+          <Property Name="GenusId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="A1" Relationship="Model.InstrumentA1" FromRole="Instrument" ToRole="A1" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Email" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Concert">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="String" Nullable="false" />
+          <Property Name="Address" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" />
+          <Property Name="Thumbnail" Type="Binary" annotation:StoreGeneratedPattern="None" />
+          <NavigationProperty Name="A3" Relationship="Model.ConcertA3" FromRole="Concert" ToRole="A3" />
+          <NavigationProperty Name="A4" Relationship="Model.ConcertA4" FromRole="Concert" ToRole="A4" />
+        </EntityType>
+        <EntityType Name="Stringer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="BirthYear" Type="String" Nullable="false" />
+          <Property Name="Text" Type="String" />
+          <Property Name="Thumbnail" Type="Binary" />
+          <NavigationProperty Name="A1" Relationship="Model.StringerA1" FromRole="Stringer" ToRole="A1" />
+        </EntityType>
+        <EntityType Name="Track">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Text" Type="String" />
+          <Property Name="Thumbnail" Type="Binary" />
+          <NavigationProperty Name="Composer" Relationship="Model.ComposerTrack" FromRole="Track" ToRole="Composer" />
+          <Property Name="ComposerId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="A2" Relationship="Model.TrackA2" FromRole="Track" ToRole="A2" />
+          <NavigationProperty Name="A3" Relationship="Model.TrackA3" FromRole="Track" ToRole="A3" />
+        </EntityType>
+        <EntityType Name="Picture">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Description" Type="String" />
+          <Property Name="Thumb" Type="Binary" />
+          <Property Name="Bytes" Type="Binary" />
+          <Property Name="ConcertId" Type="Guid" />
+          <Property Name="StringerId" Type="Guid" />
+          <Property Name="TrackId" Type="Guid" />
+          <Property Name="LeaderId" Type="Guid" />
+          <Property Name="InstrumentId" Type="Guid" />
+          <Property Name="GenusId" Type="Guid" />
+          <Property Name="ComposerId" Type="Guid" />
+          <Property Name="NewsId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Leader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="BirthYear" Type="String" Nullable="false" />
+          <Property Name="Text" Type="String" />
+          <Property Name="Thumbnail" Type="Binary" />
+          <NavigationProperty Name="A4" Relationship="Model.LeaderA4" FromRole="Leader" ToRole="A4" />
+        </EntityType>
+        <EntityType Name="A1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Instrument" Relationship="Model.InstrumentA1" FromRole="A1" ToRole="Instrument" />
+          <Property Name="InstrumentId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Stringer" Relationship="Model.StringerA1" FromRole="A1" ToRole="Stringer" />
+          <Property Name="StringerId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="A2" Relationship="Model.A1A2" FromRole="A1" ToRole="A2" />
+        </EntityType>
+        <EntityType Name="A2">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="A1" Relationship="Model.A1A2" FromRole="A2" ToRole="A1" />
+          <Property Name="A1Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Track" Relationship="Model.TrackA2" FromRole="A2" ToRole="Track" />
+          <Property Name="TrackId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="A3">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Track" Relationship="Model.TrackA3" FromRole="A3" ToRole="Track" />
+          <Property Name="TrackId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Concert" Relationship="Model.ConcertA3" FromRole="A3" ToRole="Concert" />
+          <Property Name="ConcertId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="A4">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Concert" Relationship="Model.ConcertA4" FromRole="A4" ToRole="Concert" />
+          <Property Name="ConcertId" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Leader" Relationship="Model.LeaderA4" FromRole="A4" ToRole="Leader" />
+          <Property Name="LeaderId" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Composer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fullname" Type="String" Nullable="false" />
+          <Property Name="Text" Type="String" />
+          <Property Name="Thumbnail" Type="Binary" />
+          <NavigationProperty Name="Tracks" Relationship="Model.ComposerTrack" FromRole="Composer" ToRole="Track" />
+        </EntityType>
+        <Association Name="ComposerTrack">
+          <End Type="Model.Composer" Role="Composer" Multiplicity="1" />
+          <End Type="Model.Track" Role="Track" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Composer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Track">
+              <PropertyRef Name="ComposerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Genus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Instruments" Relationship="Model.GenusInstrument" FromRole="Genus" ToRole="Instrument" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Text" Type="String" />
+          <Property Name="Thumbnail" Type="Binary" />
+        </EntityType>
+        <Association Name="GenusInstrument">
+          <End Type="Model.Genus" Role="Genus" Multiplicity="1" />
+          <End Type="Model.Instrument" Role="Instrument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Instrument">
+              <PropertyRef Name="GenusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="InstrumentA1">
+          <End Type="Model.Instrument" Role="Instrument" Multiplicity="1" />
+          <End Type="Model.A1" Role="A1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instrument">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="A1">
+              <PropertyRef Name="InstrumentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StringerA1">
+          <End Type="Model.Stringer" Role="Stringer" Multiplicity="1" />
+          <End Type="Model.A1" Role="A1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stringer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="A1">
+              <PropertyRef Name="StringerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="A1A2">
+          <End Type="Model.A1" Role="A1" Multiplicity="1" />
+          <End Type="Model.A2" Role="A2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="A1">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="A2">
+              <PropertyRef Name="A1Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TrackA2">
+          <End Type="Model.Track" Role="Track" Multiplicity="1" />
+          <End Type="Model.A2" Role="A2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Track">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="A2">
+              <PropertyRef Name="TrackId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TrackA3">
+          <End Type="Model.Track" Role="Track" Multiplicity="1" />
+          <End Type="Model.A3" Role="A3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Track">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="A3">
+              <PropertyRef Name="TrackId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ConcertA3">
+          <End Type="Model.Concert" Role="Concert" Multiplicity="1" />
+          <End Type="Model.A3" Role="A3" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Concert">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="A3">
+              <PropertyRef Name="ConcertId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ConcertA4">
+          <End Type="Model.Concert" Role="Concert" Multiplicity="1" />
+          <End Type="Model.A4" Role="A4" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Concert">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="A4">
+              <PropertyRef Name="ConcertId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LeaderA4">
+          <End Type="Model.Leader" Role="Leader" Multiplicity="1" />
+          <End Type="Model.A4" Role="A4" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Leader">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="A4">
+              <PropertyRef Name="LeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Adverties">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Image" Type="Binary" Nullable="false" />
+          <Property Name="Url" Type="String" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Date" Type="String" Nullable="false" />
+          <Property Name="Abstract" Type="String" />
+          <Property Name="Text" Type="String" Nullable="false" />
+          <Property Name="Thumbnail" Type="Binary" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Folder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Parent" Type="Int32" />
+          <NavigationProperty Name="Files" Relationship="Model.FolderFile" FromRole="Folder" ToRole="File" />
+          <Property Name="Name" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="Type" Type="String" Nullable="false" />
+          <Property Name="Lenght" Type="Int32" Nullable="false" />
+          <Property Name="Bytes" Type="Binary" Nullable="false" />
+          <NavigationProperty Name="Folder" Relationship="Model.FolderFile" FromRole="File" ToRole="Folder" />
+          <Property Name="FolderId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FolderFile">
+          <End Type="Model.Folder" Role="Folder" Multiplicity="1" />
+          <End Type="Model.File" Role="File" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Folder">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="File">
+              <PropertyRef Name="FolderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ModelContainer">
+    <EntitySetMapping Name="Instruments">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Instrument)">
+        <MappingFragment StoreEntitySet="Instruments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+          <ScalarProperty Name="GenusId" ColumnName="GenusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Admin)">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Concerts">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Concert)">
+        <MappingFragment StoreEntitySet="Concerts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stringers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Stringer)">
+        <MappingFragment StoreEntitySet="Stringers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tracks">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Track)">
+        <MappingFragment StoreEntitySet="Tracks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+          <ScalarProperty Name="ComposerId" ColumnName="ComposerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pics">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Picture)">
+        <MappingFragment StoreEntitySet="Pics">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Thumb" ColumnName="Thumb" />
+          <ScalarProperty Name="Bytes" ColumnName="Bytes" />
+          <ScalarProperty Name="ConcertId" ColumnName="ConcertId" />
+          <ScalarProperty Name="StringerId" ColumnName="StringerId" />
+          <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+          <ScalarProperty Name="LeaderId" ColumnName="LeaderId" />
+          <ScalarProperty Name="InstrumentId" ColumnName="InstrumentId" />
+          <ScalarProperty Name="GenusId" ColumnName="GenusId" />
+          <ScalarProperty Name="ComposerId" ColumnName="ComposerId" />
+          <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Leaders">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Leader)">
+        <MappingFragment StoreEntitySet="Leaders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="BirthYear" ColumnName="BirthYear" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="A1">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.A1)">
+        <MappingFragment StoreEntitySet="A1">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InstrumentId" ColumnName="InstrumentId" />
+          <ScalarProperty Name="StringerId" ColumnName="StringerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="A2">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.A2)">
+        <MappingFragment StoreEntitySet="A2">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="A1Id" ColumnName="A1Id" />
+          <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="A3">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.A3)">
+        <MappingFragment StoreEntitySet="A3">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+          <ScalarProperty Name="ConcertId" ColumnName="ConcertId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="A4">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.A4)">
+        <MappingFragment StoreEntitySet="A4">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ConcertId" ColumnName="ConcertId" />
+          <ScalarProperty Name="LeaderId" ColumnName="LeaderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Composers">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Composer)">
+        <MappingFragment StoreEntitySet="Composers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genus">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Genus)">
+        <MappingFragment StoreEntitySet="Genus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Adverties">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Adverties)">
+        <MappingFragment StoreEntitySet="Adverties">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.News)">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Abstract" ColumnName="Abstract" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Folders">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.Folder)">
+        <MappingFragment StoreEntitySet="Folders">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Parent" ColumnName="Parent" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Files">
+      <EntityTypeMapping TypeName="IsTypeOf(Model.File)">
+        <MappingFragment StoreEntitySet="Files">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Lenght" ColumnName="Lenght" />
+          <ScalarProperty Name="Bytes" ColumnName="Bytes" />
+          <ScalarProperty Name="FolderId" ColumnName="FolderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

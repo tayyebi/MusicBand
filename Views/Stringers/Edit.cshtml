@@ -1,0 +1,58 @@
+﻿@model Symphony.Models.Stringer
+
+@{
+    ViewBag.Title = "ویرایش";
+}
+<form method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <h4>نوازنده</h4>
+    <br />
+    @Html.ValidationSummary(true, "لطفا اطلاعات را دقیق وارد نمائید")
+    @Html.HiddenFor(model => model.Id)
+
+    <div>
+        @Html.LabelFor(model => model.FirstName)
+        <div>
+            @Html.EditorFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName, "*", new { @class = "Message" })
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.LastName)
+        <div>
+            @Html.EditorFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName, "*", new { @class = "Message" })
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.BirthYear)
+        <div>
+            @Html.EditorFor(model => model.BirthYear)
+            @Html.ValidationMessageFor(model => model.BirthYear, "*", new { @class = "Message" })
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Text)
+        <div>
+            @Html.EditorFor(model => model.Text)
+            @Html.ValidationMessageFor(model => model.Text, "*", new { @class = "Message" })
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Thumbnail)
+        <div>
+            <input type="file" name="thumbnail" />
+            @Html.ValidationMessageFor(model => model.Thumbnail, "*", new { @class = "Message" })
+        </div>
+    </div>
+
+    <input type="submit" value="ذخیره" />
+</form>
+@if (!Request.IsAjaxRequest())
+{
+@Html.ActionLink("بازگشت", "Index")
+}

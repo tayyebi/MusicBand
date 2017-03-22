@@ -1,0 +1,34 @@
+﻿@model Symphony.Models.Track
+
+@{
+    ViewBag.Title = "حذف";
+}
+<div>
+    <h4>قطعه</h4>
+    <br />
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dd>
+            <img src="~/Thumbs/Track/@Model.Id" />
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Composer.Fullname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Composer.Fullname)
+        </dd>
+    </dl>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+            <input type="submit" value="حذف"/>
+    }
+</div>
+@if (!Request.IsAjaxRequest())
+{
+@Html.ActionLink("بازگشت", "Index")
+}

@@ -1,0 +1,17 @@
+﻿@model Symphony.Models.Composer
+
+@{
+    ViewBag.Title = Model.Fullname;
+}
+
+<fullname>
+    @Html.DisplayFor(model => model.Fullname)
+</fullname>
+<text>
+    @Html.Raw(Model.Text)
+</text>
+<thumbnail>
+    @Symphony.Controllers.About.Root.ToString()Thumbs/Composer/@Model.Id
+</thumbnail>
+
+

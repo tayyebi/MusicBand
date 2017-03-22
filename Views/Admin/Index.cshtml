@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "فهرست مدیر محتوا";
+}
+<fieldset>
+    <legend>ولد و والد</legend>
+    @Html.ActionLink("رهبر", "Index", "Leaders")
+    @Html.ActionLink("کنسرت", "Index", "Concerts")
+    @Html.ActionLink("آهنگساز", "Index", "Composers")
+    @Html.ActionLink("قطعه", "Index", "Tracks")
+    @Html.ActionLink("صدا", "Index", "Genus")
+    @Html.ActionLink("ساز", "Index", "Instruments")
+    @Html.ActionLink("نوازنده", "Index", "Stringers")
+</fieldset>
+<fieldset>
+    <legend>ارث</legend>
+    @Html.ActionLink("نوازنده با ساز", "Index", "A1")
+    @Html.ActionLink("نوازنده و ساز با قطعه ", "Index", "A2")
+    @Html.ActionLink("قطعه با کنسرت", "Index", "A3")
+    @Html.ActionLink("کنسرت با رهبر", "Index", "A4")
+</fieldset>
+<fieldset>
+    <legend>اطلاع رسانی</legend>
+    @Html.ActionLink("نگارکده", "Index", "Pics")
+    @Html.ActionLink("اخبار", "Index", "News")
+    @Html.ActionLink("تبلیغات", "Index", "Adverties")
+</fieldset>
+<fieldset>
+    <legend>آپلود سنتر</legend>
+    @Html.ActionLink("مدیریت پوشه", "Index","Folders")
+    @Html.ActionLink("مدیریت فایل", "Index", "Files")
+</fieldset>

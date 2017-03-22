@@ -1,0 +1,189 @@
+﻿<#@ template language="C#" HostSpecific="True" #>
+<#@ output extension=".cshtml" #>
+<#@ include file="Imports.include.t4" #>
+@model <#= ViewDataTypeName #>
+<#
+string boolType = "System.Boolean";
+Version requiredMvcVersion = new Version("5.1.0.0");
+bool isControlHtmlAttributesSupported = MvcVersion >= requiredMvcVersion;
+if(IsPartialView) {
+#>
+
+<#
+} else if(IsLayoutPageSelected) {
+#>
+
+@{
+    ViewBag.Title = "ویرایش";
+<#
+if (!String.IsNullOrEmpty(LayoutPageFile)) {
+#>
+    Layout = "<#= LayoutPageFile#>";
+<#
+}
+#>
+}
+<#
+} else {
+#>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title><#= ViewName #></title>
+</head>
+<body>
+<#
+    PushIndent("    ");
+}
+#>
+<#
+if (ReferenceScriptLibraries) {
+#>
+<#
+    if (!IsLayoutPageSelected) {
+#>
+<script src="~/Scripts/jquery.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<#
+    }
+#>
+
+<#
+}
+#>
+<form method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <h4><#= ViewDataTypeShortName #></h4>
+    <br />
+<# 
+if (isControlHtmlAttributesSupported) {
+#>
+    @Html.ValidationSummary(true, "لطفا اطلاعات را دقیق وارد نمائید")
+<#        
+} else {
+#>
+    @Html.ValidationSummary(true)
+<#      
+}
+#>
+<#
+foreach (PropertyMetadata property in ModelMetadata.Properties) {
+if (property.Scaffold && !property.IsAssociation) {
+    if (property.IsPrimaryKey) {
+#>
+    @Html.HiddenFor(model => model.<#= property.PropertyName #>)
+
+<#
+    } else if (!property.IsReadOnly) {
+#>
+    <div>
+<#
+        if (property.IsForeignKey) {
+#>
+        @Html.LabelFor(model => model.<#= property.PropertyName #>, "<#= GetAssociationName(property) #>")
+<#
+        } else {
+#>
+        @Html.LabelFor(model => model.<#= property.PropertyName #>)
+<#
+        }
+#>
+        <div>
+<#
+        bool isCheckbox = property.TypeName.Equals(boolType);
+        if (property.IsForeignKey) {
+#>
+<# 
+        if (isControlHtmlAttributesSupported) {
+#>
+            @Html.DropDownList("<#= property.PropertyName #>")
+<#
+        } else {
+#>
+            @Html.DropDownList("<#= property.PropertyName #>", String.Empty)
+<#
+        }
+#>
+<#
+        } else  if (isControlHtmlAttributesSupported) {
+            if (isCheckbox) {
+#>
+            <div>
+<#
+                PushIndent("    ");
+#>
+            @Html.EditorFor(model => model.<#= property.PropertyName #>)
+<#
+            } else if (property.IsEnum && !property.IsEnumFlags) {
+#>
+            @Html.EnumDropDownListFor(model => model.<#= property.PropertyName #>)
+<#
+            } else {
+#>
+            @Html.EditorFor(model => model.<#= property.PropertyName #>)
+<#
+            }
+        } else {
+#>
+            @Html.EditorFor(model => model.<#= property.PropertyName #>)
+<#
+        }
+#>
+<# 
+        if (isControlHtmlAttributesSupported) {
+#>
+            @Html.ValidationMessageFor(model => model.<#= property.PropertyName #>, "*", new { @class = "Message" })
+<#        
+        } else {
+#>
+            @Html.ValidationMessageFor(model => model.<#= property.PropertyName #>)
+<#      
+        }
+#>
+<#
+        if (isCheckbox && isControlHtmlAttributesSupported) {
+            PopIndent();
+#>
+            </div>
+<#
+        }
+#>
+        </div>
+    </div>
+
+<#
+    }
+}
+}
+#>
+    <input type="submit" value="ذخیره" />
+</form>
+@if (!Request.IsAjaxRequest())
+{
+@Html.ActionLink("بازگشت", "Index")
+}
+<#
+if(IsLayoutPageSelected && ReferenceScriptLibraries) {
+#>
+<script src="~/Scripts/jquery.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<#
+}
+if(!IsPartialView && !IsLayoutPageSelected) {
+    ClearIndent();
+#>
+</body>
+</html>
+<#
+}
+#>
+<#@ include file="ModelMetadataFunctions.cs.include.t4" #>

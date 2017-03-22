@@ -1,0 +1,48 @@
+﻿@model Symphony.Models.Instrument
+
+@{
+    ViewBag.Title = "ایجاد";
+}
+<form method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <h4>ساز</h4>
+    <br />
+    @Html.ValidationSummary(true, "لطفا اطلاعات را دقیق وارد نمائید", new { @class = "Message" })
+    <div>
+        @Html.LabelFor(model => model.Name)
+        <div>
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name, "*")
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Text)
+        <div>
+            @Html.EditorFor(model => model.Text)
+            @Html.ValidationMessageFor(model => model.Text, "*")
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Thumbnail)
+        <div>
+            <input type="file" name="thumbnail" />
+            @Html.ValidationMessageFor(model => model.Thumbnail, "*")
+        </div>
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Genu.Title)
+        <div>
+            @Html.DropDownList("GenusId")
+            @Html.ValidationMessageFor(model => model.GenusId, "*")
+        </div>
+    </div>
+
+    <input type="submit" value="ایجاد" />
+</form>
+@if (!Request.IsAjaxRequest())
+{
+    @Html.ActionLink("بازگشت", "Index")
+}

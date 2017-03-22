@@ -1,0 +1,28 @@
+﻿.Stage #post #thumbnail, .Stage #post #title{
+    display: inline-block;
+}
+.Stage #post #title:hover {
+    text-decoration:underline;
+}
+.Stage #post #title{
+    text-decoration:none;
+    color:inherit;
+}
+.Stage #post #thumbnail{
+    margin-top:-.5em;
+    left:0;
+    position: absolute;
+    max-width: 10em;
+    max-height:5em;
+    margin-left:2em;
+    border-radius:1em;
+    border-top-left-radius:0;
+}
+.Stage #post #abstract{
+    display:block;
+}
+.Stage #post{
+    padding-right:1em;
+    margin-top: 1em;
+    background-color:rgba(128, 128, 128, 0.80);
+}

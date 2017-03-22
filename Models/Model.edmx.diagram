@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4be002df2b034050898b22da38a05240" Name="Diagram1" ZoomLevel="116" >
+        <EntityTypeShape EntityType="Model.Instrument" Width="1.5" PointX="3.75" PointY="16.625" FillColor="White" />
+        <EntityTypeShape EntityType="Model.Admin" Width="1.5" PointX="5.75" PointY="0.75" FillColor="Black" />
+        <EntityTypeShape EntityType="Model.Concert" Width="1.5" PointX="0.75" PointY="4.75" FillColor="White" />
+        <EntityTypeShape EntityType="Model.Stringer" Width="1.5" PointX="3.75" PointY="20.125" FillColor="White" />
+        <EntityTypeShape EntityType="Model.Track" Width="1.5" PointX="3.75" PointY="13" FillColor="White" />
+        <EntityTypeShape EntityType="Model.Picture" Width="1.5" PointX="6" PointY="4" FillColor="Lime" />
+        <EntityTypeShape EntityType="Model.Leader" Width="1.5" PointX="0.75" PointY="0.75" FillColor="White" />
+        <EntityTypeShape EntityType="Model.A1" Width="1.5" PointX="6" PointY="18.875" FillColor="Red" />
+        <EntityTypeShape EntityType="Model.A2" Width="1.5" PointX="8.25" PointY="16" FillColor="Red" />
+        <EntityTypeShape EntityType="Model.A3" Width="1.5" PointX="2.875" PointY="4.75" FillColor="Red" />
+        <EntityTypeShape EntityType="Model.A4" Width="1.5" PointX="3" PointY="2.25" FillColor="Red" />
+        <EntityTypeShape EntityType="Model.Composer" Width="1.5" PointX="1.5" PointY="13.375" FillColor="White" />
+        <AssociationConnector Association="Model.ComposerTrack" />
+        <EntityTypeShape EntityType="Model.Genus" Width="1.5" PointX="1.5" PointY="17" FillColor="White" />
+        <AssociationConnector Association="Model.GenusInstrument" />
+        <AssociationConnector Association="Model.InstrumentA1" />
+        <AssociationConnector Association="Model.StringerA1" />
+        <AssociationConnector Association="Model.A1A2" />
+        <AssociationConnector Association="Model.TrackA2" />
+        <AssociationConnector Association="Model.TrackA3" />
+        <AssociationConnector Association="Model.ConcertA3" />
+        <AssociationConnector Association="Model.ConcertA4" />
+        <AssociationConnector Association="Model.LeaderA4" />
+        <EntityTypeShape EntityType="Model.Adverties" Width="1.5" PointX="8.75" PointY="2.125" FillColor="Yellow" />
+        <EntityTypeShape EntityType="Model.News" Width="1.5" PointX="7.25" PointY="8.375" FillColor="Aqua" />
+        <EntityTypeShape EntityType="Model.Folder" Width="1.5" PointX="9.125" PointY="4.5" FillColor="Fuchsia" />
+        <EntityTypeShape EntityType="Model.File" Width="1.5" PointX="9.125" PointY="6.625" FillColor="Fuchsia" />
+        <AssociationConnector Association="Model.FolderFile" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

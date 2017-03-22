@@ -1,0 +1,22 @@
+﻿#content h1#name{
+	display:inline-block;
+}
+#content img#thumbnail{
+	margin-left:0;
+	margin-right:auto;
+	display:block;
+	margin-top:-10em;
+	border-top-left-radius:1em;
+}
+#content div#text{
+	background-color:rgba(204,204,204,1);
+}
+hr{
+    margin-top:2em;
+    margin-bottom:2em;
+}
+#instruments img{
+    display:inline-block;
+    max-height:10em;
+    max-width:10em;
+}

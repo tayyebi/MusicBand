@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Symphony.Models.Concert>
+
+@{
+    ViewBag.Title = "کنسرت ها";
+}
+@Html.ActionLink("ایجاد", "Create")
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+        </th>
+        <th></th>
+    </tr>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            <img src="~/Thumbs/Concert/@item.Id" />
+        </td>
+        <td>
+            @Ajax.ActionLink("جزئیات", "Details", new { id=item.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+            @Html.ActionLink("ویرایش", "Edit", new { id=item.Id })
+            @Ajax.ActionLink("حذف", "Delete", new { id=item.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+        </td>
+    </tr>
+}
+</table>

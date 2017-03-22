@@ -1,0 +1,49 @@
+﻿@model Symphony.Models.News
+
+@{
+    ViewBag.Title = "جزئیات";
+}
+<div>
+    <h4>اخبار</h4>
+    <br />
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Abstract)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Abstract)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+        <dd>
+            @Html.Raw(Model.Text)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Thumbnail)
+        </dt>
+        <dd>
+            <img src="~/Thumbs/News/@Model.Id" />
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ویرایش", "Edit", new { id=Model.Id })
+    @Ajax.ActionLink("حذف", "Delete", new { id=Model.Id }, new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "Dynamic", OnComplete = "JsDynamic()" })
+@if (!Request.IsAjaxRequest())
+{
+    @Html.ActionLink("بازگشت", "Index")
+}
+</p>

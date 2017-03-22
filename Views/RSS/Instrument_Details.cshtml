@@ -1,0 +1,19 @@
+﻿@model Symphony.Models.Instrument
+
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<name>
+    @Html.DisplayFor(model => model.Name)
+</name>
+<genus_id>@Html.DisplayFor(model => model.GenusId)</genus_id>
+<genus_name>
+    @Html.DisplayFor(model => model.Genu.Title)
+</genus_name>
+<text>
+    @Html.Raw(Model.Text)
+</text>
+<thumbnail>
+    @Symphony.Controllers.About.Root.ToString()Thumbs/Instrument/@Model.Id
+</thumbnail>
